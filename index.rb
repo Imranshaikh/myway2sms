@@ -2,8 +2,8 @@ require 'uri'
 require 'open-uri'
  
 SERVER = "http://sent.ly/command/sendsms?"
-USERNAME = "imranshaikh818@gmail.com"
-PASSWORD = "program123"
+USERNAME = "email" #Sent.ly username
+PASSWORD = "password" #Sent.ly password
 
 class Sending_sms  
 
@@ -46,10 +46,13 @@ class Sending_sms
                   return -2
                 when "3"
                   puts  "No appropriate device error"
+                  return -3
                 when "4"
                   puts "Not enough credit error"
+                  return -4
                 else
                   puts "Unknown error"
+                  return -1000
                 end
               end
             }
@@ -60,7 +63,6 @@ class Sending_sms
       puts "Oop! Number is invalid" 
     end
 
-
   end
   
 
@@ -68,5 +70,4 @@ class Sending_sms
     number.length <= 4 && number[/^.\d+$/]
   end
 
-  
 end
